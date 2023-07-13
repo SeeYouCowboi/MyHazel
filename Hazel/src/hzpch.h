@@ -13,6 +13,8 @@
 
 #include <cstdio>
 
+#include "Hazel/Log.h"
+
 #ifdef HZ_PLAYFORM_WINDOWS
 	#include <Windows.h>
 #endif // HZ_PLAYFORM_WINDOWS
