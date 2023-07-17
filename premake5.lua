@@ -69,14 +69,12 @@ project "Hazel"
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
 		optimize "On"
-		staticruntime "off"
-		runtime "Debug"
+
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
 		optimize "On"
-		staticruntime "off"
-		runtime "Release"
+
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
