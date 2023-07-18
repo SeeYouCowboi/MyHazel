@@ -22,6 +22,7 @@ project "Hazel"
 	location "Hazel"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin/intermediate/" .. outputdir .. "/%{prj.name}")
@@ -52,7 +53,6 @@ project "Hazel"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -68,16 +68,19 @@ project "Hazel"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
+		runtime "Debug"
 		optimize "On"
 
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
+		runtime "Release"
 		optimize "On"
 
 
@@ -86,6 +89,7 @@ project "sandbox"
 	kind "ConsoleApp"
 
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin/intermediate/" .. outputdir .. "/%{prj.name}")
@@ -110,7 +114,6 @@ project "sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -121,12 +124,15 @@ project "sandbox"
 
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
+		runtime "Debug"
 		optimize "On"
 
 	filter "configurations:Release"
 		defines "HZ_RELEASE"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "HZ_DIST"
+		runtime "Release"
 		optimize "On"

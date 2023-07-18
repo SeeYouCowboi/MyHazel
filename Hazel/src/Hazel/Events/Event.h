@@ -40,6 +40,8 @@ namespace Hazel {
 	{
 		friend class EventDispatcher;
 	public:
+		bool Handled = false;
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -69,7 +71,7 @@ namespace Hazel {
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled = func(*(T*)&m_Event);
+				m_Event.Handled = func(*(T*)&m_Event);
 				// *(T*)&m_Event 是将&m_Event转化为T*指针然后再用*来对其进行访问
 				return true;
 			}

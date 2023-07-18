@@ -1,6 +1,8 @@
 # Directories
 .vs/
-bin/
+
+# 只忽略根目录下的bin文件，以免把premake给ignore了
+/bin/
 
 #files
 *.user

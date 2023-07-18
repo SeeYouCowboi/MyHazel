@@ -3,6 +3,9 @@
 #include "Core.h"
 #include "Events/Event.h"
 #include "Window.h"
+#include "Hazel/LayerStack.h"
+#include "Hazel/Events/Event.h"
+#include "Hazel/Events/ApplicationEvent.h"
 
 namespace Hazel
 {
@@ -16,9 +19,14 @@ namespace Hazel
 
 		void OnEvent(Event& e);
 
-		private:
-			std::unique_ptr<Window> m_Window;
-			bool m_Running = true;
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
+	private:
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
+
+		LayerStack m_LayerStack;
 	};
 
 	// 在客户端中进行定义
