@@ -23,6 +23,8 @@ namespace Hazel
 		void PushOverlay(Layer* layer);
 
 	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 
